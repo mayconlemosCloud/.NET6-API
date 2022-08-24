@@ -33,20 +33,18 @@ builder.Services.AddSwaggerGen();
 
 //services
 builder.Services.AddScoped<IServiceCustomer, ServiceCustomer>();
-builder.Services.AddScoped<IServiceToken, ServiceToken>();
+
 
 //repository
 builder.Services.AddScoped<IRepositoryCustomer, RepositoryCustomer>();
-builder.Services.AddScoped<IRepositoryUser, RepositoryUser>();
+
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+ app.UseSwagger();
+ app.UseSwaggerUI();
+
 
 app.UseCors(x => x
                 .AllowAnyOrigin()

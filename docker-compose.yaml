@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  api:
+    image: apimaycon
+    build:
+      context: .
+      dockerfile: ./dockers/api/Dockerfile
+    ports:
+      - "5000:80"    
+
+  rabbitmq:
+    image: rabbitmq 
+    build:
+      context: .
+      dockerfile: ./dockers/rabbitmq/Dockerfile
+    ports:
+      - "1883:1883"
+      - "15675:15675"
+      - "15672:15672"
+      - "5672:5672"
